@@ -28,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} ${roboto.variable} antialiased `}>
+      <body
+        className={`${raleway.variable} ${roboto.variable} antialiased  bg-bodyWhite]`}
+      >
         <Navbar />
         {children}
       </body>
