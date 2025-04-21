@@ -1,0 +1,63 @@
+"use client";
+import { Search } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Input } from "./ui/input";
+import { useState } from "react";
+import { Button } from "./ui/button";
+
+export default function Navbar() {
+  const [searchVisible, setSearchVisible] = useState<boolean>(false);
+
+  return (
+    <>
+      <div className="navbar px-[103px] py-[21px] flex flex-row justify-between items-center bg-white">
+        <div className="left-side">
+          <Link href="/">
+            <Image
+              src="/images/Logo.png"
+              alt="My Logo"
+              width={157}
+              height={44}
+            />
+          </Link>
+        </div>
+        <div className="right-side flex flex-row gap-[50px] items-center ">
+          <Link
+            href="#"
+            className="hover:text-primaryPurple transition-all duration-300 ease-in-out"
+          >
+            Blog
+          </Link>
+          <Link
+            href="#"
+            className="hover:text-primaryPurple transition-all duration-300 ease-in-out"
+          >
+            About
+          </Link>
+          <div className="search flex flex-row gap-[10px] items-center px-[10px] py-[5px] hover:text-primaryPurple/80 transition-all duration-300 ease-in-out rounded-[8px]">
+            <Search
+              strokeWidth={0.75}
+              onClick={() => setSearchVisible(!searchVisible)}
+            />
+            <Input
+              className={
+                searchVisible
+                  ? "border border-[#E4E4E7] rounded-[8px] "
+                  : "hidden"
+              }
+            />
+          </div>
+          <Link href="#">
+            <Button
+              variant="secondary"
+              className="bg-primaryPurple text-white rounded py-3 px-6 hover:bg-primaryPurple/80 transition-all duration-300 ease-in-out"
+            >
+              <h6>Contact Us</h6>
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+}
