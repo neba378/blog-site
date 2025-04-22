@@ -5,19 +5,30 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <>
-      <div className="hero-section bg-primaryPurple flex w-full py-[100px] px-[103px]">
+      <div className="hero-section bg-primaryPurple flex w-full py-[100px] px-[103px] ">
         <div className="content-part flex flex-row justify-between w-screen">
-          <div className="absolute -top-9 -left-1 w-[550px] h-60 inset-0 rounded-full">
+          <div className="absolute -top-8  -left-1 w-[550px] inset-0 ">
             <Image
               src="/images/Vector.png" // Your image source
               alt="vextor Image"
-              layout="fill"
+              width={777}
+              height={378}
               objectFit="cover"
               className="clip-ellipse"
             />
           </div>
+          <div className="absolute top-[700px] left-[1400px] w-[550px] h-60 inset-0  ">
+            <Image
+              src="/images/Vector.png" // Your image source
+              alt="vextor Image"
+              width={777}
+              height={378}
+              objectFit="cover"
+              className="clip-ellipse-bottom"
+            />
+          </div>
           <div className="left-section">
-            <h6 className="text-white font-semibold tracking-widest">
+            <h6 className="text-white font-semibold tracking-widest z-20">
               Featured Posts
             </h6>
 
@@ -41,7 +52,7 @@ const Hero = () => {
               </Button>
             </Link>
           </div>
-          <div className="right-section w-[65%]">
+          <div className="right-section w-[65%] z-20">
             <Image
               src="/images/hero.png"
               alt="Hero Image"

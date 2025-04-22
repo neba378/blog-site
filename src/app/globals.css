@@ -15,5 +15,9 @@ h6 {
   font-family: var(--font-roboto), sans-serif;
 } */
 .clip-ellipse {
-  clip-path: ellipse(50% 100% at 50% 50%);
+  clip-path: ellipse(50% 100% at 30% 50%);
+}
+
+.clip-ellipse-bottom {
+  clip-path: ellipse(50% 50% at 50% 50%);
 }
