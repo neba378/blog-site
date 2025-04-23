@@ -5,13 +5,16 @@ import Link from "next/link";
 import { Input } from "./ui/input";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [searchVisible, setSearchVisible] = useState<boolean>(false);
 
+  const pathname = usePathname();
+
   return (
     <>
-      <div className="navbar py-[21px] flex-row justify-between items-center px-8 lg:px-[103px] bg-white z-20 hidden lg:flex">
+      <div className="navbar py-[21px] flex-row justify-between items-center px-8 lg:px-[103px] bg-white z-20 hidden lg:flex text-black">
         <div className="left-side z-20">
           <Link href="/">
             <Image
@@ -24,14 +27,18 @@ export default function Navbar() {
         </div>
         <div className="right-side flex flex-row gap-[50px] items-center ">
           <Link
-            href="#"
-            className="hover:text-primaryPurple transition-all duration-300 ease-in-out"
+            href="/blogs"
+            className={`hover:text-primaryPurple transition-all duration-300 ease-in-out ${
+              pathname === "/blogs" ? "text-primaryPurple" : ""
+            }`}
           >
-            Blog
+            Blogs
           </Link>
           <Link
-            href="#"
-            className="hover:text-primaryPurple transition-all duration-300 ease-in-out"
+            href="#about"
+            className={`hover:text-primaryPurple transition-all duration-300 ease-in-out ${
+              pathname === "/about" ? "text-primaryPurple" : ""
+            }`}
           >
             About
           </Link>
@@ -48,7 +55,7 @@ export default function Navbar() {
               }
             />
           </div>
-          <Link href="#" className="z-20">
+          <Link href="#contact" className="z-20">
             <Button
               variant="secondary"
               className="bg-primaryPurple text-white rounded py-3 px-6 hover:bg-primaryPurple/80 transition-all duration-300 ease-in-out"

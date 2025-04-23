@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
+import Card from "./Card";
 
 const Recent = () => {
   return (
     <>
-      <div className="whole flex flex-col border-gray-300 border-2 sm:border-0 rounded-[15px] sm:rounded-0 sm:shadow-none xs:shadow-lg py-10">
+      <div className="whole flex flex-col border-gray-300 border-2 sm:border-0 rounded-[15px] sm:rounded-0 sm:shadow-none xs:shadow-lg pt-6 mb-5">
         <div className="bottom flex lg:flex-row flex-col md:px-12 px-8 lg:px-[103px] w-full gap-10 justify-center items-center">
           <div className="right-section flex-1 flex justify-start items-center w-full ">
             <Image
@@ -47,6 +48,11 @@ const Recent = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="bottom-cards grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1 px-8 lg:px-[80px]">
+        <Card />
+        <Card />
+        <Card />
       </div>
     </>
   );

@@ -1,5 +1,5 @@
-import Card from "@/components/Card";
 import Hero from "@/components/Hero";
+import Popular from "@/components/Popular";
 import Recent from "@/components/Recent";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
       <Hero />
       {/* <Featured /> */}
       <Recent />
-      <Card />
+      <Popular />
     </>
   );
 }

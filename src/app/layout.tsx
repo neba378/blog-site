@@ -4,6 +4,8 @@ import "./globals.css";
 import { Raleway, Roboto } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import NavbarMobile from "@/components/NavbarMobile";
+import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 
 const raleway = Raleway({
   weight: ["400", "700"],
@@ -35,6 +37,8 @@ export default function RootLayout({
         <NavbarMobile />
         <Navbar />
         {children}
+        <Contact />
+        <Footer />
       </body>
     </html>
   );
