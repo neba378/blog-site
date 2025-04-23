@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { Raleway, Roboto } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import NavbarMobile from "@/components/NavbarMobile";
 
 const raleway = Raleway({
   weight: ["400", "700"],
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${raleway.variable} ${roboto.variable} antialiased  bg-bodyWhite]`}
       >
+        <NavbarMobile />
         <Navbar />
         {children}
       </body>

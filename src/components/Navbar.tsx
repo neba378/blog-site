@@ -11,8 +11,8 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="navbar px-[103px] py-[21px] flex flex-row justify-between items-center bg-white">
-        <div className="left-side">
+      <div className="navbar py-[21px] flex-row justify-between items-center px-8 lg:px-[103px] bg-white z-20 hidden lg:flex">
+        <div className="left-side z-20">
           <Link href="/">
             <Image
               src="/images/Logo.png"
@@ -48,7 +48,7 @@ export default function Navbar() {
               }
             />
           </div>
-          <Link href="#">
+          <Link href="#" className="z-20">
             <Button
               variant="secondary"
               className="bg-primaryPurple text-white rounded py-3 px-6 hover:bg-primaryPurple/80 transition-all duration-300 ease-in-out"
