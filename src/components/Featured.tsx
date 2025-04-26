@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 const Featured = () => {
   return (
     <>
-      <div className="featured w-full mt-20 flex flex-row justify-center items-center p-10 ">
+      <div className="featured w-full mt-20 flex flex-row justify-center items-center p-10 mx-4 ">
         <div className="main relative rounded-md">
           <div className="img">
             <Image
@@ -24,7 +24,7 @@ const Featured = () => {
             <div className="main-div">
               <div className="h-div">
                 <h1 className="text-4xl md:text-2xl font-bold">
-                  How to make a Game look more attractive with New VR & AI
+                  How to make a Game l000ook more attractive with New VR & AI
                   Technology
                 </h1>
               </div>

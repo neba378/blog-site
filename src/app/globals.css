@@ -6,7 +6,8 @@ body {
   font-family: var(--font-raleway), sans-serif;
 }
 
-span {
+span,
+p {
   font-family: var(--font-roboto), sans-serif;
 }
 

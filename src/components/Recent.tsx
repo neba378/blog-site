@@ -5,9 +5,9 @@ import Card from "./Card";
 const Recent = () => {
   return (
     <>
-      <div className="whole flex flex-col border-gray-300 border-2 sm:border-0 rounded-[15px] sm:rounded-0 sm:shadow-none xs:shadow-lg pt-6 mb-5">
-        <div className="bottom flex lg:flex-row flex-col md:px-12 px-8 lg:px-[103px] w-full gap-10 justify-center items-center">
-          <div className="right-section flex-1 flex justify-start items-center w-full ">
+      <div className="whole flex flex-col   e xs:shadow-lg pt-6 mb-5 mx-10">
+        <div className="bottom flex lg:flex-row flex-col md:px-12 px-8 lg:px-[103px] w-full gap-10 justify-center items-center border-gray-300 border-2 sm:border-0 rounded-[15px] ">
+          <div className="right-section flex-1 flex justify-start items-center w-full py-5">
             <Image
               src="/images/Featured.png"
               alt="Featured Image"
