@@ -35,7 +35,7 @@ export default function Navbar() {
             Blogs
           </Link>
           <Link
-            href="#about"
+            href="/about"
             className={`hover:text-primaryPurple transition-all duration-300 ease-in-out ${
               pathname === "/about" ? "text-primaryPurple" : ""
             }`}
@@ -55,7 +55,7 @@ export default function Navbar() {
               }
             />
           </div>
-          <Link href="#contact" className="z-20">
+          <Link href="/contact" className="z-20">
             <Button
               variant="secondary"
               className="bg-primaryPurple text-white rounded py-3 px-6 hover:bg-primaryPurple/80 transition-all duration-300 ease-in-out"

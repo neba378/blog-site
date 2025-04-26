@@ -47,7 +47,7 @@ const NavbarMobile = () => {
                 Blogs
               </Link>
               <Link
-                href="#about"
+                href="/about"
                 onClick={handleLinkClick}
                 className={`hover:text-primaryPurple transition-all duration-300 ease-in-out ${
                   pathname === "/about" ? "text-primaryPurple" : ""
@@ -68,7 +68,7 @@ const NavbarMobile = () => {
                   }
                 />
               </div>
-              <Link href="#contact" onClick={handleLinkClick} className="z-20">
+              <Link href="/contact" onClick={handleLinkClick} className="z-20">
                 <Button
                   variant="secondary"
                   className="bg-primaryPurple text-white rounded py-3 px-6 hover:bg-primaryPurple/80 transition-all duration-300 ease-in-out"
