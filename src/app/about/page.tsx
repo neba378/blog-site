@@ -75,7 +75,7 @@ const page = () => {
             </div>
           </div>
         </div>
-        <div className="bottom-cards flex flex-row gap-12 justify-center items-center px-8 lg:px-[103px] py-16">
+        <div className="bottom-cards w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center items-center py-16">
           {datas.map((data) => (
             <AboutCard
               key={data.number}
