@@ -4,11 +4,13 @@
 
 body {
   font-family: var(--font-raleway), sans-serif;
+  background-color: theme('colors.bodyWhite');
 }
 
 span,
 p,
-h1 {
+h1,
+label {
   font-family: var(--font-roboto), sans-serif;
 }
 

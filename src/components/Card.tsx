@@ -5,7 +5,7 @@ import Link from "next/link";
 const Card = ({}) => {
   return (
     <>
-      <div className="bottom flex flex-col justify-center items-center max-w-[688px] sm:px-3 p-0 pt-5">
+      <div className="bottom flex flex-col justify-center items-center max-w-[688px] p-5 pt-5 bg-white m-3 rounded-xl">
         <div className="right-section flex-1 flex justify-start items-center w-full max-h-[676px]">
           <Image
             src="/images/Container0.png"

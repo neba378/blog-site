@@ -3,7 +3,7 @@ import Card from "@/components/Card";
 const page = () => {
   return (
     <>
-      <div className="main-section">
+      <div className="main-section my-10">
         <div className="main-top flex flex-col justify-center items-center text-center p-8">
           <h6 className="w-full  font-bold tracking-wide text-light">
             OUR BLOGS

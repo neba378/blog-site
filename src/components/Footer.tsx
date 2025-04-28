@@ -39,7 +39,7 @@ const Footer = () => {
           <Youtube size={30} className="text-primaryPurple" />
         </Link>
       </div>
-      <hr className="bg-primaryPurple h-1 w-full my-1" />
+      <hr className="bg-primaryPurple h-0.5 w-full my-5" />
       <p>
         Copyright Ideapeel Inc ©{new Date().getFullYear()}. All Right Reserved
       </p>

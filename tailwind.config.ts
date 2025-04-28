@@ -19,7 +19,7 @@ const config: Config = {
         medium: "#666666",
         light: "#999999",
         white: "#ffffff",
-        bodyWhite: "#E2E2E2",
+        bodyWhite: "#FAFAFA",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

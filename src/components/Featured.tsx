@@ -24,7 +24,7 @@ const Featured = () => {
             <div className="main-div">
               <div className="h-div">
                 <h1 className="text-4xl md:text-2xl font-bold">
-                  How to make a Game l000ook more attractive with New VR & AI
+                  How to make a Game look more attractive with New VR & AI
                   Technology
                 </h1>
               </div>

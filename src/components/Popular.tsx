@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 const Popular = () => {
   return (
     <>
-      <div className="main-section">
+      <div className="main-section my-10">
         <div className="top flex flex-row justify-between items-center px-8 lg:px-[80px] py-5">
           <h1 className="left text-3xl md:text-4xl lg:text-5xl font-bold p-2">
             Popular Posts
