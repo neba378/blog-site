@@ -8,7 +8,9 @@ const BlogsPage = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res = await fetch("http://localhost:5000/api/v1/blogs");
+      const res = await fetch(
+        "https://blog-site-f3i2.onrender.com/api/v1/blogs"
+      );
       const data = await res.json();
       setBlogs(data);
     };
