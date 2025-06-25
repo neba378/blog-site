@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({ blog }) => {
         <div className="right-section flex-1 flex justify-start items-center w-full max-h-[676px]">
           <Image
             src={
-              `http://localhost:5000${blog.img_url}` ||
+              `https://blog-site-f3i2.onrender.com${blog.img_url}` ||
               blog.img_url ||
               "/images/Container0.png"
             }
