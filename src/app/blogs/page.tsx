@@ -1,6 +1,21 @@
+"use client";
 import Card from "@/components/Card";
+import { useEffect, useState } from "react";
+import { Blog } from "@/types/blogs";
 
-const page = () => {
+const BlogsPage = () => {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      const res = await fetch("http://localhost:5000/api/v1/blogs");
+      const data = await res.json();
+      setBlogs(data);
+    };
+
+    fetchBlogs();
+  }, []);
+
   return (
     <>
       <div className="main-section my-10">
@@ -22,18 +37,13 @@ const page = () => {
           </div>
         </div>
         <div className="bottom-cards grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1 px-8 lg:px-[80px] ">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {blogs.map((blog) => (
+            <Card key={blog._id} blog={blog} />
+          ))}
         </div>
       </div>
     </>
   );
 };
 
-export default page;
+export default BlogsPage;
