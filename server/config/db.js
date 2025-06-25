@@ -7,7 +7,7 @@ dotenv.config();
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/blogDB";
 
 const connectDB = async () => {
-  console.log("Connecting to MongoDB...", MONGO_URI);
+  // console.log("Connecting to MongoDB...", MONGO_URI);
   try {
     await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
