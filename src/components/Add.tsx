@@ -129,7 +129,7 @@ const BlogPost: React.FC = () => {
         <input
           type="file"
           accept="image/*"
-          name="cover"
+          name="files"
           onChange={handleImageChange}
           ref={fileInputRef}
           disabled={uploading}
