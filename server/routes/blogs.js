@@ -2,7 +2,7 @@ import express from "express";
 import Blog from "../models/blogs.js"; // Mongoose model
 import { v2 as cloudinary } from "cloudinary";
 import fileUpload from "express-fileupload";
-// import fs from "fs";
+import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -19,18 +19,31 @@ blogRouter.use(express.static("public"));
 // Create a new blog
 blogRouter.post("/v1/blogs", async (req, res) => {
   try {
-    const { files } = req.files;
-    const path = __dirname + "./../uploads/" + files.name;
-    files.mv(path);
+    const file = req.files?.files;
+    if (!file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
 
-    const res = await cloudinary.uploader.upload(path);
+    // Ensure uploads directory exists
+    const uploadDir = __dirname + "/../uploads";
 
-    const img_url = res.url;
+    const filePath = `${uploadDir}/${file.name}`;
+
+    console.log("File path:", filePath);
+
+    await file.mv(filePath);
+
+    // Upload to Cloudinary
+    const uploadResult = await cloudinary.uploader.upload(filePath);
+
+    const img_url = uploadResult.url;
 
     const { title, content, author, tags } = req.body;
     const newBlog = new Blog({ img_url, title, content, author, tags });
     await newBlog.save();
-    // fs.unlinkSync(path);
+
+    // Optionally remove the file after upload
+    fs.unlinkSync(filePath);
 
     res.status(201).json({ message: "blog added" });
   } catch (err) {
