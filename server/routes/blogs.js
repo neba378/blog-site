@@ -44,7 +44,11 @@ blogRouter.post("/v1/blogs", async (req, res) => {
 
     fs.unlinkSync(filePath);
 
-    res.status(201).json({ message: "blog added" });
+    res.status(201).json({
+      message: "blog added",
+      img_url,
+      blog: newBlog,
+    });
   } catch (err) {
     console.error("Error creating blog:", err);
     res.status(400).json({ message: err.message });

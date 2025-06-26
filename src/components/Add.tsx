@@ -61,6 +61,9 @@ const BlogPost: React.FC = () => {
       }
 
       const data = await res.json();
+      if (!data.img_url) {
+        throw new Error("Image URL not returned from server");
+      }
       setImgURL(data.img_url);
       alert("Post saved successfully!");
       console.log("Saved post:", data);
@@ -128,12 +131,12 @@ const BlogPost: React.FC = () => {
         <label>Cover Image:</label>
         <input
           type="file"
-          accept="image/*"
           name="files"
           onChange={handleImageChange}
           ref={fileInputRef}
           disabled={uploading}
         />
+
         {uploading && <span> Uploading... </span>}
         {error && <span style={{ color: "red" }}>{error}</span>}
         {imgURL && (
