@@ -42,7 +42,6 @@ blogRouter.post("/v1/blogs", async (req, res) => {
     const newBlog = new Blog({ img_url, title, content, author, tags });
     await newBlog.save();
 
-    // Optionally remove the file after upload
     fs.unlinkSync(filePath);
 
     res.status(201).json({ message: "blog added" });
