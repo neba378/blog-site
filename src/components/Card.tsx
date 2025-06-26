@@ -13,7 +13,7 @@ const Card: React.FC<CardProps> = ({ blog }) => {
       <div className="bottom flex flex-col justify-center items-center max-w-[688px] p-5 pt-5 bg-white m-3 rounded-xl">
         <div className="right-section flex-1 flex justify-start items-center w-full max-h-[676px]">
           <Image
-            src={`${blog.img_url}`}
+            src={blog.img_url}
             alt="Featured Image"
             width={608}
             height={576}
