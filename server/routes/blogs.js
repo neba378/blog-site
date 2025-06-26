@@ -1,52 +1,49 @@
 import express from "express";
 import Blog from "../models/blogs.js"; // Mongoose model
-import multer from "multer";
-import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+import fileUpload from "express-fileupload";
+// import fs from "fs";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 const blogRouter = express.Router();
 
-// Setup multer for file uploads
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); // folder where images are saved
-  },
-  filename: function (req, file, cb) {
-    const ext = path.extname(file.originalname);
-    const filename = `${Date.now()}-${file.fieldname}${ext}`;
-    cb(null, filename);
-  },
-});
-const upload = multer({ storage });
+blogRouter.use(fileUpload());
 
-// POST blog with image
-blogRouter.post("/v1/blogs", upload.single("cover"), async (req, res) => {
+blogRouter.use(express.json());
+blogRouter.use(express.urlencoded({ extended: true }));
+blogRouter.use(express.static("public"));
+
+// Create a new blog
+blogRouter.post("/v1/blogs", async (req, res) => {
   try {
-    const { title, author, content } = req.body;
-    const img_url = `/uploads/${req.file.filename}`; // public path
+    const { files } = req.files;
+    const path = __dirname + "./../uploads/" + files.name;
+    files.mv(path);
 
-    const newBlog = new Blog({ title, content, author, img_url });
+    const res = await cloudinary.uploader.upload(path);
+
+    const img_url = res.url;
+
+    const { title, content, author, tags } = req.body;
+    const newBlog = new Blog({ img_url, title, content, author, tags });
     await newBlog.save();
+    // fs.unlinkSync(path);
 
-    res.status(201).json(newBlog);
+    res.status(201).json({ message: "blog added" });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to save blog post." });
+    console.error("Error creating blog:", err);
+    res.status(400).json({ message: err.message });
   }
 });
+
 // Get all blogs
 blogRouter.get("/v1/blogs", async (_req, res) => {
   try {
     const blogs = await Blog.find();
-
-    const formattedBlogs = blogs.map((blog) => ({
-      ...blog.toObject(),
-      createdAt: new Date(blog.createdAt).toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-      }),
-    }));
-
-    res.json(formattedBlogs);
+    res.json(blogs);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -57,17 +54,7 @@ blogRouter.get("/v1/blogs/:id", async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     if (!blog) return res.status(404).json({ message: "Blog not found" });
-
-    const formattedBlog = {
-      ...blog.toObject(),
-      createdAt: new Date(blog.createdAt).toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-      }),
-    };
-
-    res.json(formattedBlog);
+    res.json(blog);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -76,10 +63,10 @@ blogRouter.get("/v1/blogs/:id", async (req, res) => {
 // Update a blog by ID
 blogRouter.put("/v1/blogs/:id", async (req, res) => {
   try {
-    const { img_url, title, content, author, tags } = req.body;
+    const { title, content, author, tags } = req.body;
     const blog = await Blog.findByIdAndUpdate(
       req.params.id,
-      { $set: { img_url, title, content, author, tags } },
+      { $set: { title, content, author, tags } },
       { new: true, runValidators: true }
     );
     if (!blog) return res.status(404).json({ message: "Blog not found" });

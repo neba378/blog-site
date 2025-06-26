@@ -48,10 +48,13 @@ const BlogPost: React.FC = () => {
       // Send tags as JSON string, backend should parse this accordingly
       formData.append("tags", JSON.stringify(tagsArray));
 
-      const res = await fetch("http://localhost:5000/api/v1/blogs", {
-        method: "POST",
-        body: formData,
-      });
+      const res = await fetch(
+        "https://blog-site-f3i2.onrender.com/api/v1/blogs",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!res.ok) {
         throw new Error("Failed to save post");
@@ -126,6 +129,7 @@ const BlogPost: React.FC = () => {
         <input
           type="file"
           accept="image/*"
+          name="cover"
           onChange={handleImageChange}
           ref={fileInputRef}
           disabled={uploading}
