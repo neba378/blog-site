@@ -44,7 +44,7 @@ const BlogPost: React.FC = () => {
       formData.append("title", title);
       formData.append("author", author);
       formData.append("content", markdown);
-      formData.append("cover", selectedFile);
+      formData.append("files", selectedFile); // changed from 'cover' to 'files'
       // Send tags as JSON string, backend should parse this accordingly
       formData.append("tags", JSON.stringify(tagsArray));
 
