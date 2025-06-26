@@ -12,12 +12,6 @@ const nextConfig = {
         port: "5000",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "blog-site-f3i2.onrender.com",
-        port: "5000",
-        pathname: "/**",
-      },
     ],
   },
 };
